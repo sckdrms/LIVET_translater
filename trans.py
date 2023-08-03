@@ -42,7 +42,7 @@ if __name__ == '__main__':
         threading.Timer(1, lambda: webbrowser.open("http://localhost:5000")).start()
 
     try:
-        # 모든 네트워크에서 접근 가능하도록 host를 0.0.0.0으로 설정
+        # 모든 네트워크에서 접근 가능하도록 host를 0.0.0.0으로 설정.
         app.run(host='0.0.0.0', debug=True)
     finally:
         if temp_file.exists():
