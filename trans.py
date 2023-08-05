@@ -38,7 +38,7 @@ if __name__ == '__main__':
     temp_file = Path(tempfile.gettempdir()) / 'webbrowser_open.tmp'
     if not temp_file.exists():
         temp_file.touch()
-        # 새로운 쓰레드에서 웹 브라우저를 연다.
+        # 새로운 쓰레드에서 웹 브라우저를 연다
         threading.Timer(1, lambda: webbrowser.open("http://localhost:5000")).start()
 
     try:
