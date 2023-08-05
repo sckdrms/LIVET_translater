@@ -22,15 +22,20 @@ def index():
         selected_target = request.form.get('language') 
         selected_source = request.form.get('source')
 
-        headers = {"X-Naver-Client-Id": client_id, "X-Naver-Client-Secret": client_secret}
-        data = {"source": selected_source, "target": selected_target, "text": original_text}
-        papago_url = "https://openapi.naver.com/v1/papago/n2mt"
+        # Check if the text is empty
+        if not original_text.strip():  # .strip() will remove any leading/trailing whitespace
+            translation = '번역 할 내용을 입력하세요.'
+        else:
+            headers = {"X-Naver-Client-Id": client_id, "X-Naver-Client-Secret": client_secret}
+            data = {"source": selected_source, "target": selected_target, "text": original_text}
+            papago_url = "https://openapi.naver.com/v1/papago/n2mt"
 
-        response = requests.post(papago_url, headers=headers, data=data)
-        res = json.loads(response.text)
-        translation = res['message']['result']['translatedText']
+            response = requests.post(papago_url, headers=headers, data=data)
+            res = json.loads(response.text)
+            translation = res.get('message', {}).get('result', {}).get('translatedText', 'Translation failed')
 
     return render_template('index.html', translation=translation, selected_source=selected_source, selected_target=selected_target)
+
 
 
 if __name__ == '__main__':

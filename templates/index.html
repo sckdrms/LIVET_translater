@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>LIVET</title>
-    <meta name="viewport" content="width=device-width, initial-scale=0.535">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5, user-scalable=no">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <link rel="icon" href="{{ url_for('static', filename='LIVET-favicon-96.png') }}" type="image/x-icon">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/LIVET-favicon-16.png">
@@ -22,6 +22,7 @@
                 </select>
                 <span>to</span>
                 <select name="language">
+                    <option value="ko" {% if selected_source == 'ko' %}selected{% endif %}>Korean</option>
                     <option value="en" {% if selected_target == 'en' %}selected{% endif %}>English</option>
                     <option value="zh-CN" {% if selected_target == 'zh-CN' %}selected{% endif %}>Chinese</option>
                     <option value="ja" {% if selected_target == 'ja' %}selected{% endif %}>Japanese</option>
@@ -32,7 +33,7 @@
                 <a>번역하기</a>
             </button>
         </form>
-        <h2>번역 결과</h2>
+        
         <textarea name="translation" rows="10" readonly>{{ translation }}</textarea>
     </div>
     <script>
