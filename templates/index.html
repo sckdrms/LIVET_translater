@@ -11,18 +11,21 @@
         <form method="POST" onsubmit="setLastTranslation();">
             <div class="lang-selector">
                 <select name="source">
-                    <option value="ko" {% if selected_source == 'ko' %}selected{% endif %}>Korean</option>
-                    <option value="en" {% if selected_source == 'en' %}selected{% endif %}>English</option>
-                    <option value="zh-CN" {% if selected_source == 'zh-CN' %}selected{% endif %}>Chinese</option>
-                    <option value="ja" {% if selected_source == 'ja' %}selected{% endif %}>Japanese</option>
+                    <option value="ko" selected>Korean</option>
+                    <option value="en">English</option>
+                    <option value="vi">vietnamese</option>
+                    <option value="zh-CN">Chinese</option>
+                    <option value="ja">Japanese</option>
                 </select>
                 <span>to</span>
                 <select name="language">
-                    <option value="en" {% if selected_target == 'en' %}selected{% endif %}>English</option>
-                    <option value="zh-CN" {% if selected_target == 'zh-CN' %}selected{% endif %}>Chinese</option>
-                    <option value="ja" {% if selected_target == 'ja' %}selected{% endif %}>Japanese</option>
+                    <option value="en" selected>English</option>
+                    <option value="vi">vietnamese</option>
+                    <option value="zh-CN">Chinese</option>
+                    <option value="ja">Japanese</option>
                 </select>
             </div>
+            
             <textarea id="text" name="text" placeholder="Enter your text" rows="10"></textarea>
             <button type="submit" class="translate-button">
                 <a>번역하기</a>
