@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Translation App</title>
-    <meta name="viewport" content="width=device-width, initial-scale=0.535">
+    <title>LIVET</title>
+    <meta name="viewport" content="width=device-width, initial-scale=0.5, user-scalable=no">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='LIVET-favicon-96.png') }}" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/LIVET-favicon-16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/LIVET-favicon-32.png">
+
 </head>
 <body>
     <div class="container">
@@ -20,6 +24,7 @@
                 <span>to</span>
                 <select name="language">
                     <option value="en" selected>English</option>
+                    <option value="ko">Korean</option>
                     <option value="vi">vietnamese</option>
                     <option value="zh-CN">Chinese</option>
                     <option value="ja">Japanese</option>
@@ -31,7 +36,7 @@
                 <a>번역하기</a>
             </button>
         </form>
-        <h2>번역 결과</h2>
+        
         <textarea name="translation" rows="10" readonly>{{ translation }}</textarea>
     </div>
     <script>

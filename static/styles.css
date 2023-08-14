@@ -1,3 +1,4 @@
+
 body {
     display: flex;
     justify-content: center;
@@ -12,12 +13,12 @@ body {
 form {
     display: flex;
     flex-direction: column;
-    margin-bottom: 2em;
+   
 }
 
 textarea, select, .translate-button {
-    margin-top: 1em;
-    margin-bottom: 1em;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
 }
 
 h1 {
@@ -30,25 +31,35 @@ h2 {
 }
 
 textarea[name="translation"] {
-    width: 35em;
-    height: 10em;
+    width: 90%;
+    width: 650px;
+    height: 300px;
     resize: none;
-    font-size: 20px;
+    font-size: 30px;
     line-height: 1;
+    border-radius: 20px;
+    text-align: center;
+    padding-top: 30px;
 }
 
 textarea[name="text"] {
-    width: 35em;
-    height: 10em;
+    width: 90%;
+    width: 650px;
+    height: 300px;
     resize: none;
-    font-size: 20px;
+    font-size: 30px;
+    border-radius: 20px;
+    text-align: center;
+    padding-top: 30px;
 }
 
 .lang-selector {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
+    border-radius: 100px;
+    transform: scale(2.5);
 }
 
 .lang-text {
@@ -57,35 +68,34 @@ textarea[name="text"] {
 }
 
 .translate-button {
-    background: transparent;
-    color: #fff;
-    font-size: 17px;
-    text-transform: uppercase;
-    font-weight: 600;
-    border: none;
-    padding: 20px 30px;
-    perspective: 30rem;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(255, 130, 130, 0.308);
-    width: 10em;
-    margin: auto;
+    display: inline-block;
+    padding: 0.9rem 1.8rem;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 50px;
+    color: white;
+    border: 3px solid rgb(223, 102, 120);
+    cursor: pointer;
     position: relative;
+    background-color: transparent;
+    text-decoration: none;
     overflow: hidden;
-    text-align: center;
+    z-index: 1;
+    font-family: inherit;
+    
 }
 
 .translate-button::before {
-    content: '';
-    display: block;
+    content: "";
     position: absolute;
+    left: 0;
+    top: 0;
     width: 100%;
     height: 100%;
-    top: 0;
-    left: 0;
-    border-radius: 10px;
-    background: linear-gradient(320deg, rgba(255, 117, 117, 0.678), rgba(255, 54, 87, 0.308));
+    background-color: rgb(223, 102, 120);
+    transform: translateY(-100%);
+    transition: all .3s;
     z-index: -1;
-    transition: background 3s;
 }
 
 .translate-button a {
@@ -94,24 +104,6 @@ textarea[name="text"] {
 }
 
 .translate-button:hover::before {
-    animation: rotate 1s;
-    transition: all .5s;
+    transform: translateY(0);
 }
 
-@keyframes rotate {
-    0% {
-        transform: rotateX(180deg);
-    }
-    100% {
-        transform: rotateX(360deg);
-    }
-}
-
-@media (max-width: 360px) {
-    .container {
-        margin-top: 0;
-    }
-    textarea[name="translation"], textarea[name="text"] {
-        width: 90%;
-    }
-}
